@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  mapsPlaces
+
+  Created by Pablo Ruiz on 2/13/18.
+  Copyright © 2018 nearsoft. All rights reserved.
+*/
+
+"turn-on-location" = "turn on location to find places near you.";
+"cancel" = "Cancel";
+"open-settings" = "Open Settings";
