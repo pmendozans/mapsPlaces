@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rMH-6I-yv7">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Native-->
+        <scene sceneID="7H0-9d-knM">
+            <objects>
+                <viewController id="IM4-qo-hvm" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XMq-7W-CNH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ySZ-7q-hqv"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Native" image="tab-ios-logo" id="aKy-5H-qf3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pHh-oI-i61" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="146" y="216"/>
+        </scene>
+        <!--Google-->
+        <scene sceneID="HwV-iq-zjC">
+            <objects>
+                <viewController id="9vH-vR-1XN" customClass="GoogleMapViewController" customModule="mapsPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zYR-TO-wGf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sGl-AR-QNI" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sGl-AR-QNI" firstAttribute="bottom" secondItem="UAQ-LL-Hea" secondAttribute="bottom" id="0Ge-yT-Cxl"/>
+                            <constraint firstItem="sGl-AR-QNI" firstAttribute="top" secondItem="zYR-TO-wGf" secondAttribute="top" id="F8x-3w-Nod"/>
+                            <constraint firstItem="sGl-AR-QNI" firstAttribute="leading" secondItem="UAQ-LL-Hea" secondAttribute="leading" id="f5O-HU-NJO"/>
+                            <constraint firstItem="sGl-AR-QNI" firstAttribute="trailing" secondItem="UAQ-LL-Hea" secondAttribute="trailing" id="sJK-Rp-8Mj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UAQ-LL-Hea"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Google" image="tab-google-logo" id="WBB-bK-1pJ"/>
+                    <connections>
+                        <outlet property="mapView" destination="sGl-AR-QNI" id="M6f-Wu-qEI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="grU-n3-b6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="144.80000000000001" y="-448.42578710644682"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="u6C-PY-tZZ">
+            <objects>
+                <tabBarController id="rMH-6I-yv7" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o3u-a5-0e1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="1" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9vH-vR-1XN" kind="relationship" relationship="viewControllers" id="Yy7-hH-bcg"/>
+                        <segue destination="IM4-qo-hvm" kind="relationship" relationship="viewControllers" id="UyE-H2-PFH"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sd4-i1-ihx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-806" y="-116"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tab-google-logo" width="25" height="25"/>
+        <image name="tab-ios-logo" width="25" height="27"/>
+    </resources>
+</document>

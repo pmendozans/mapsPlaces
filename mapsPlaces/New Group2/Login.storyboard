@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UFf-pp-cvu">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="p7U-dc-OFd">
+            <objects>
+                <viewController id="UFf-pp-cvu" customClass="LoginViewController" customModule="mapsPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H2J-X5-3z6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back-login" translatesAutoresizingMaskIntoConstraints="NO" id="DSY-el-zxt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingresar a HMO Maps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHq-HL-tdx">
+                                <rect key="frame" x="93" y="322" width="189" height="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaU-i0-PfS">
+                                <rect key="frame" x="222" y="385" width="60" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button" image="google-logo"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginWithGoogle:" destination="UFf-pp-cvu" eventType="touchUpInside" id="cgY-Bm-VzK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cua-sO-BA6">
+                                <rect key="frame" x="93" y="385" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="hWr-dk-QOW"/>
+                                    <constraint firstAttribute="width" constant="60" id="qLr-Gr-mHJ"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="facebook-login"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginWithFacebook:" destination="UFf-pp-cvu" eventType="touchUpInside" id="gKK-P0-ze1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KaU-i0-PfS" firstAttribute="top" secondItem="Cua-sO-BA6" secondAttribute="top" id="4G5-7P-GqL"/>
+                            <constraint firstItem="Cua-sO-BA6" firstAttribute="leading" secondItem="CHq-HL-tdx" secondAttribute="leading" id="FFe-sF-6BB"/>
+                            <constraint firstItem="DSY-el-zxt" firstAttribute="top" secondItem="H2J-X5-3z6" secondAttribute="top" id="MHU-s6-dAd"/>
+                            <constraint firstItem="DSY-el-zxt" firstAttribute="height" secondItem="H2J-X5-3z6" secondAttribute="height" id="RLa-9F-qkJ"/>
+                            <constraint firstItem="DSY-el-zxt" firstAttribute="leading" secondItem="J0r-Ei-xQB" secondAttribute="leading" id="SZK-rN-I27"/>
+                            <constraint firstItem="CHq-HL-tdx" firstAttribute="centerY" secondItem="H2J-X5-3z6" secondAttribute="centerY" id="UL3-9j-FMO"/>
+                            <constraint firstItem="KaU-i0-PfS" firstAttribute="width" secondItem="Cua-sO-BA6" secondAttribute="width" id="W2o-QY-xYI"/>
+                            <constraint firstItem="Cua-sO-BA6" firstAttribute="top" secondItem="CHq-HL-tdx" secondAttribute="bottom" constant="40" id="Wfi-Gg-GJd"/>
+                            <constraint firstItem="DSY-el-zxt" firstAttribute="width" secondItem="H2J-X5-3z6" secondAttribute="width" id="Znh-bv-MaZ"/>
+                            <constraint firstItem="KaU-i0-PfS" firstAttribute="height" secondItem="Cua-sO-BA6" secondAttribute="height" id="eZZ-4f-BqY"/>
+                            <constraint firstItem="KaU-i0-PfS" firstAttribute="trailing" secondItem="CHq-HL-tdx" secondAttribute="trailing" id="kTk-eV-YCL"/>
+                            <constraint firstItem="CHq-HL-tdx" firstAttribute="centerX" secondItem="H2J-X5-3z6" secondAttribute="centerX" id="saj-Qj-QWd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="J0r-Ei-xQB"/>
+                    </view>
+                    <connections>
+                        <segue destination="OHN-OJ-MQz" kind="show" identifier="loginToMapsSegue" id="7X1-0b-K36"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9va-ff-JgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="112.8" y="158.77061469265368"/>
+        </scene>
+        <!--Maps-->
+        <scene sceneID="JjE-gL-5eC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Maps" id="OHN-OJ-MQz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f4J-Te-n1H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="841" y="158"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back-login" width="375" height="667"/>
+        <image name="facebook-login" width="666" height="666"/>
+        <image name="google-logo" width="256" height="256"/>
+    </resources>
+</document>
