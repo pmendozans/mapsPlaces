@@ -14,7 +14,11 @@ target 'mapsPlaces' do
   pod 'Firebase/Auth'
   pod 'FirebaseUI/Google'
   pod 'FirebaseUI/Facebook'
-  pod 'Firebase/Database'  
+  pod 'Firebase/Database'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'GoogleMaps'
+  pod 'SwiftyJSON'
 
   target 'mapsPlacesTests' do
     inherit! :search_paths
