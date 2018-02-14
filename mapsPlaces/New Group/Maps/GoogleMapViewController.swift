@@ -77,6 +77,7 @@ extension GoogleMapViewController: CLLocationManagerDelegate {
         if let location = locations.first {
             mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
             fetchNearbyPlaces(coordinate: mapView.camera.target)
+            GoogleMapsService().getNearvyPlaces(byLocation: (locations.first?.coordinate)!)
             //locationManager.stopUpdatingLocation()
         }
     }
