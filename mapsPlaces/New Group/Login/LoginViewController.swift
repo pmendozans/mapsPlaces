@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
     
     func setupGoogleLogin() {
         GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
     }
     
     @IBAction func loginWithFacebook(_ sender: Any) {
@@ -43,7 +44,7 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController : GIDSignInDelegate {
+extension LoginViewController : GIDSignInDelegate, GIDSignInUIDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         guard let authentication = user.authentication else {
             return

@@ -28,6 +28,8 @@
 		728D44162033ABED00B20C36 /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D44132033ABED00B20C36 /* GoogleDataProvider.swift */; };
 		728D44172033ABED00B20C36 /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D44142033ABED00B20C36 /* GooglePlace.swift */; };
 		728D44182033ABED00B20C36 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D44152033ABED00B20C36 /* PlaceMarker.swift */; };
+		728D441A2033B83500B20C36 /* NativeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D44192033B83500B20C36 /* NativeMapViewController.swift */; };
+		728D441D2033B9E700B20C36 /* MapLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D441C2033B9E700B20C36 /* MapLocation.swift */; };
 		9A0890030112E2BD971F5746 /* Pods_mapsPlacesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16D1D8B26BBF333666C89CD /* Pods_mapsPlacesUITests.framework */; };
 		F193F858141E0AB485ADBCEC /* Pods_mapsPlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A1367CF755B0774C6B30D0 /* Pods_mapsPlaces.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +81,8 @@
 		728D44132033ABED00B20C36 /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleDataProvider.swift; sourceTree = "<group>"; };
 		728D44142033ABED00B20C36 /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
 		728D44152033ABED00B20C36 /* PlaceMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
+		728D44192033B83500B20C36 /* NativeMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeMapViewController.swift; sourceTree = "<group>"; };
+		728D441C2033B9E700B20C36 /* MapLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocation.swift; sourceTree = "<group>"; };
 		73E242D1A6B00C7BF7A41DDC /* Pods_mapsPlacesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mapsPlacesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FEDF7C45312D522DA1F19A /* Pods-mapsPlaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mapsPlaces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mapsPlaces/Pods-mapsPlaces.debug.xcconfig"; sourceTree = "<group>"; };
 		81A1367CF755B0774C6B30D0 /* Pods_mapsPlaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mapsPlaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +157,7 @@
 		725EE36E2033564E00A90A52 /* mapsPlaces */ = {
 			isa = PBXGroup;
 			children = (
+				728D441B2033B9CB00B20C36 /* Models */,
 				728D440B20339C5800B20C36 /* Resources */,
 				725EE3A82033638400A90A52 /* Common */,
 				725EE3A7203362BC00A90A52 /* Views */,
@@ -248,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				728D44092033977400B20C36 /* GoogleMapViewController.swift */,
+				728D44192033B83500B20C36 /* NativeMapViewController.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -268,6 +274,15 @@
 				728D44152033ABED00B20C36 /* PlaceMarker.swift */,
 			);
 			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		728D441B2033B9CB00B20C36 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				728D441C2033B9E700B20C36 /* MapLocation.swift */,
+			);
+			name = Models;
+			path = "New Group4";
 			sourceTree = "<group>";
 		};
 		7F12752E2A824ABDD3D33501 /* Frameworks */ = {
@@ -617,6 +632,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				728D440A2033977400B20C36 /* GoogleMapViewController.swift in Sources */,
+				728D441A2033B83500B20C36 /* NativeMapViewController.swift in Sources */,
 				728D44162033ABED00B20C36 /* GoogleDataProvider.swift in Sources */,
 				728D44182033ABED00B20C36 /* PlaceMarker.swift in Sources */,
 				728D44172033ABED00B20C36 /* GooglePlace.swift in Sources */,
@@ -626,6 +642,7 @@
 				725EE3722033564E00A90A52 /* LoginViewController.swift in Sources */,
 				725EE3A6203362AE00A90A52 /* ApiManager.swift in Sources */,
 				725EE3BC203382CC00A90A52 /* UIView+InspecatbleBorders.swift in Sources */,
+				728D441D2033B9E700B20C36 /* MapLocation.swift in Sources */,
 				725EE3702033564E00A90A52 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
