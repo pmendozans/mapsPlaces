@@ -9,11 +9,12 @@
 import Foundation
 import MapKit
 import SwiftyJSON
+import ObjectMapper
 
 class MapLocation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
-    var title: String?
-    var subtitle: String?
+    var title: String? = ""
+    var subtitle: String? = ""
     
     init(json: JSON) {
         let lat = json["geometry"]["location"]["lat"].doubleValue as CLLocationDegrees

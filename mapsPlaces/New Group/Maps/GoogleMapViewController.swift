@@ -17,13 +17,22 @@ class GoogleMapViewController: UIViewController {
     
     private var didAskedForSettings = false
     private let locationManager = CLLocationManager()
-    private let dataProvider = GoogleDataProvider()
+    private let googlePlacesViewModel = GooglePlacesViewModel()
     private var searchedTypes = ["bar", "cafe", "restaurant"]
     private let searchRadius: Double = 1000
+    private let mapHelper = MapHelper()
+    private let requestForLocationAlert = ActionSheet(message: NSLocalizedString("turn-on-location", comment: ""))
+                                            .addAction(NSLocalizedString("cancel", comment: ""))
+                                            .addAction(NSLocalizedString("open-settings", comment: ""), style: UIAlertActionStyle.default) { action in
+                                                if let url = URL(string:UIApplicationOpenSettingsURLString) {
+                                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                                }
+                                             }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+        mapView.delegate = self
         startLocationManager()
         setupMapToDefaultlocation()
     }
@@ -34,9 +43,10 @@ class GoogleMapViewController: UIViewController {
     
     func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
         mapView.clear()
-        dataProvider.fetchPlacesNearCoordinate(coordinate, radius:searchRadius, types: searchedTypes) { places in
-            places.forEach {
-                let marker = PlaceMarker(place: $0)
+        googlePlacesViewModel.getNearvyPlaces(byLocation: coordinate)
+        .then { places -> Void in
+            for place in places {
+                let marker = PlaceMarker(place: place)
                 marker.map = self.mapView
             }
         }
@@ -49,17 +59,9 @@ class GoogleMapViewController: UIViewController {
         else if CLLocationManager.authorizationStatus() == .denied {
             NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground(_:)), name: .UIApplicationWillEnterForeground, object: nil)
             if !didAskedForSettings{
-                ActionSheet(message: NSLocalizedString("turn-on-location", comment: ""))
-                    .addAction(NSLocalizedString("cancel", comment: ""))
-                    .addAction(NSLocalizedString("open-settings", comment: ""), style: UIAlertActionStyle.default) { action in
-                        if let url = URL(string:UIApplicationOpenSettingsURLString) {
-                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                        }
-                    }
-                    .show()
+                requestForLocationAlert.show()
                 didAskedForSettings = true
             }
-            
         }
         locationManager.startUpdatingLocation()
     }
@@ -69,6 +71,12 @@ class GoogleMapViewController: UIViewController {
         mapView.camera = camera
         mapView.isMyLocationEnabled = true
     }
+    
+    private func openDetailsViewController(place: GooglePlace) {
+        let detailsViewController = storyboard?.instantiateViewController(withIdentifier: "PlaceDetailsViewController") as! PlaceDetailsViewController
+        detailsViewController.googlePlace = place
+        navigationController?.pushViewController(detailsViewController, animated: true)
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -77,12 +85,28 @@ extension GoogleMapViewController: CLLocationManagerDelegate {
         if let location = locations.first {
             mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
             fetchNearbyPlaces(coordinate: mapView.camera.target)
-            GoogleMapsService().getNearvyPlaces(byLocation: (locations.first?.coordinate)!)
-            //locationManager.stopUpdatingLocation()
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
+    }
+}
+
+// MARK: GMSMapViewDelegate
+extension GoogleMapViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
+        guard let placeMarker = marker as? PlaceMarker else {
+            return nil
+        }
+        let markerView = mapHelper.createMarkerView(googlePlace: placeMarker.place)
+        return markerView
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        guard let placeMarker = marker as? PlaceMarker else {
+            return
+        }
+        openDetailsViewController(place: placeMarker.place)
     }
 }

@@ -7,8 +7,19 @@
 //
 
 import Foundation
+import PromiseKit
+import CoreLocation
+import SwiftyJSON
 
-class GooglePlaces {
+class GooglePlacesViewModel {
     
+    private let googlePlacesSwrvice = GooglePlacesService()
+    private let googlePlacesDecoder = GooglePlacesDecoder()
     
+    func getNearvyPlaces(byLocation location: CLLocationCoordinate2D) -> Promise<[GooglePlace]> {
+        return googlePlacesSwrvice.getNearvyPlaces(byLocation: location)
+                .then { responseJson in
+                    return self.googlePlacesDecoder.decodePlaceList(dictionaryResponse: responseJson)
+                }
+    }
 }
