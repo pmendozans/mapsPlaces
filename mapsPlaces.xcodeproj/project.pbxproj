@@ -30,6 +30,8 @@
 		728D44182033ABED00B20C36 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D44152033ABED00B20C36 /* PlaceMarker.swift */; };
 		728D441A2033B83500B20C36 /* NativeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D44192033B83500B20C36 /* NativeMapViewController.swift */; };
 		728D441D2033B9E700B20C36 /* MapLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D441C2033B9E700B20C36 /* MapLocation.swift */; };
+		728D441F2033BE4000B20C36 /* GooglePlacesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D441E2033BE4000B20C36 /* GooglePlacesRouter.swift */; };
+		728D44212033C08700B20C36 /* GoogleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D44202033C08700B20C36 /* GoogleConfiguration.swift */; };
 		9A0890030112E2BD971F5746 /* Pods_mapsPlacesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16D1D8B26BBF333666C89CD /* Pods_mapsPlacesUITests.framework */; };
 		F193F858141E0AB485ADBCEC /* Pods_mapsPlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A1367CF755B0774C6B30D0 /* Pods_mapsPlaces.framework */; };
 /* End PBXBuildFile section */
@@ -83,6 +85,8 @@
 		728D44152033ABED00B20C36 /* PlaceMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
 		728D44192033B83500B20C36 /* NativeMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeMapViewController.swift; sourceTree = "<group>"; };
 		728D441C2033B9E700B20C36 /* MapLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocation.swift; sourceTree = "<group>"; };
+		728D441E2033BE4000B20C36 /* GooglePlacesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesRouter.swift; sourceTree = "<group>"; };
+		728D44202033C08700B20C36 /* GoogleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleConfiguration.swift; sourceTree = "<group>"; };
 		73E242D1A6B00C7BF7A41DDC /* Pods_mapsPlacesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mapsPlacesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FEDF7C45312D522DA1F19A /* Pods-mapsPlaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mapsPlaces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mapsPlaces/Pods-mapsPlaces.debug.xcconfig"; sourceTree = "<group>"; };
 		81A1367CF755B0774C6B30D0 /* Pods_mapsPlaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mapsPlaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				725EE3A5203362AE00A90A52 /* ApiManager.swift */,
+				728D441E2033BE4000B20C36 /* GooglePlacesRouter.swift */,
 			);
 			name = Networking;
 			path = "New Group1";
@@ -272,6 +277,7 @@
 				728D44132033ABED00B20C36 /* GoogleDataProvider.swift */,
 				728D44142033ABED00B20C36 /* GooglePlace.swift */,
 				728D44152033ABED00B20C36 /* PlaceMarker.swift */,
+				728D44202033C08700B20C36 /* GoogleConfiguration.swift */,
 			);
 			path = GoogleMaps;
 			sourceTree = "<group>";
@@ -633,9 +639,11 @@
 			files = (
 				728D440A2033977400B20C36 /* GoogleMapViewController.swift in Sources */,
 				728D441A2033B83500B20C36 /* NativeMapViewController.swift in Sources */,
+				728D44212033C08700B20C36 /* GoogleConfiguration.swift in Sources */,
 				728D44162033ABED00B20C36 /* GoogleDataProvider.swift in Sources */,
 				728D44182033ABED00B20C36 /* PlaceMarker.swift in Sources */,
 				728D44172033ABED00B20C36 /* GooglePlace.swift in Sources */,
+				728D441F2033BE4000B20C36 /* GooglePlacesRouter.swift in Sources */,
 				728D440F20339D1B00B20C36 /* CustomAlert.swift in Sources */,
 				728D44042033896B00B20C36 /* CustomError.swift in Sources */,
 				725EE3BF2033836200A90A52 /* AuthenticationManager.swift in Sources */,
