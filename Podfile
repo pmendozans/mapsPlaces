@@ -19,6 +19,8 @@ target 'mapsPlaces' do
   pod 'FacebookLogin'
   pod 'GoogleMaps'
   pod 'SwiftyJSON'
+  pod 'Kingfisher'
+  pod 'Cosmos', '~> 14.0'
 
   target 'mapsPlacesTests' do
     inherit! :search_paths

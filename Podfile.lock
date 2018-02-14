@@ -6,6 +6,7 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
+  - Cosmos (14.0.0)
   - FacebookCore (0.3.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.27)
@@ -79,6 +80,7 @@ PODS:
   - GTMSessionFetcher/Core (1.1.13)
   - GTMSessionFetcher/Full (1.1.13):
     - GTMSessionFetcher/Core (= 1.1.13)
+  - Kingfisher (4.6.1)
   - leveldb-library (1.20)
   - LKAlertController (1.12.1)
   - nanopb (0.3.8):
@@ -102,6 +104,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Cosmos (~> 14.0)
   - FacebookCore
   - FacebookLogin
   - Firebase/Auth
@@ -110,6 +113,7 @@ DEPENDENCIES:
   - FirebaseUI/Facebook
   - FirebaseUI/Google
   - GoogleMaps
+  - Kingfisher
   - LKAlertController
   - ObjectMapper (~> 3.1)
   - PromiseKit (~> 4.4)
@@ -118,6 +122,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  Cosmos: 6dd44b65d587033e690ae1c350c875d262a23fda
   FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
   FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
   FBSDKCoreKit: 7c4bba2877781a131ab5d54c0a78c405d4307b62
@@ -134,6 +139,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 5bb1eae636127de695590f50e7d248483eb891e6
+  Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   LKAlertController: e229465c0b4543ea122bfe62567747e6213ee43f
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
@@ -141,6 +147,6 @@ SPEC CHECKSUMS:
   PromiseKit: 743e497a5f505a470d3bbbf4ce0663c1268af0a4
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: c290282a214de2e77c23cb1b81a02cefa8fad948
+PODFILE CHECKSUM: 0694ba409b0c677fc0d8e4e1fa303800e5d3776d
 
 COCOAPODS: 1.4.0
