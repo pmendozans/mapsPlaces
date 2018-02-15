@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Kingfisher
 
 class NativeMapViewController: UIViewController {
     
@@ -96,11 +97,17 @@ extension NativeMapViewController: MKMapViewDelegate {
             as? MKMarkerAnnotationView {
             dequeuedView.annotation = annotation
             view = dequeuedView
+            view.image = nil
         } else {
             view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
             view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            if let iconUrl = annotation.iconUrl {
+                KingfisherManager.shared.retrieveImage(with: iconUrl, options: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
+                    view.glyphImage = image?.scale(toSize: CGSize(width: 20, height: 20))
+                })
+            }
         }
         return view
     }
