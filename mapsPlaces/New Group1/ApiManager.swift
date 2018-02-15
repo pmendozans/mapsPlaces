@@ -20,6 +20,8 @@ class ApiManager {
             Alamofire.request(request).validate().responseJSON { response in
                 switch response.result {
                 case .success(let value):
+                    print("GOOGLE CALL")
+                    print(value)
                     guard let statusCode = response.response?.statusCode else {
                         reject(requestError)
                         return

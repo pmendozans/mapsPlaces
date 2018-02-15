@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import Kingfisher
 import SwiftyUserDefaults
+import LKAlertController
 
 class NativeMapViewController: ProfileViewController {
     
@@ -20,6 +21,13 @@ class NativeMapViewController: ProfileViewController {
     private let googlePlacesViewModel = GooglePlacesViewModel()
     private let initialLocation = CLLocation(latitude: 29.097, longitude: -111.022)
     private let regionRadius: CLLocationDistance = 1000
+    private let requestForLocationAlert = ActionSheet(message: NSLocalizedString("turn-on-location", comment: ""))
+        .addAction(NSLocalizedString("cancel", comment: ""))
+        .addAction(NSLocalizedString("open-settings", comment: ""), style: UIAlertActionStyle.default) { action in
+            if let url = URL(string:UIApplicationOpenSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +73,7 @@ class NativeMapViewController: ProfileViewController {
         else if CLLocationManager.authorizationStatus() == .denied {
             NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground(_:)), name: .UIApplicationWillEnterForeground, object: nil)
             if !didAskedForSettings{
-                //requestForLocationAlert.show()
+                requestForLocationAlert.show()
                 didAskedForSettings = true
             }
         }

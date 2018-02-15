@@ -18,10 +18,17 @@ class ProfileHomeViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var mapModeSwitch: UISwitch!
     
+    let authenticationMnager = AuthenticationManager()
+    let navigationManager = NavigationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadUserInformation()
         mapModeSwitch.isOn = Defaults[.isSateliteEnabled]
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadUserInformation()
     }
     
     private func loadUserInformation() {
@@ -40,6 +47,10 @@ class ProfileHomeViewController: UIViewController {
         Defaults[.isSateliteEnabled] = sender.isOn
     }
     
+    @IBAction func logout(_ sender: Any) {
+        authenticationMnager.logout()
+        navigationManager.navigateToLogin()
+    }
     
     @IBAction func closeProfile(_ sender: Any) {
         dismiss(animated: true, completion: nil)

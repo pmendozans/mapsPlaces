@@ -12,6 +12,7 @@ import Firebase
 import FBSDKLoginKit
 import GoogleMaps
 import IQKeyboardManagerSwift
+import SwiftyUserDefaults
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         GMSServices.provideAPIKey("AIzaSyC5n9hgRoOww42foA6mQ1MpBEkGlyAl9FY")
+        checkIfLogged()
         return true
     }
 
@@ -36,6 +38,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
+    
+    func checkIfLogged() {
+        if Defaults[.isLoggedIn] {
+            let mapsNavigator = UIStoryboard(name: "Maps", bundle: nil)
+            self.window?.rootViewController = mapsNavigator.instantiateInitialViewController()
+            self.window?.makeKeyAndVisible()
+        }
     }
 }
 

@@ -11,6 +11,7 @@ import PromiseKit
 import FacebookLogin
 import FacebookCore
 import Firebase
+import SwiftyUserDefaults
 
 class AuthenticationManager {
     
@@ -45,8 +46,19 @@ class AuthenticationManager {
                     reject(customError.createCustomError())
                     return
                 }
+                Defaults[.isLoggedIn] = true
                 fullfill(user)
             }
+        }
+    }
+    
+    func logout() {
+        do {
+            Defaults[.isLoggedIn] = false
+            try Auth.auth().signOut()
+        }
+        catch {
+            print(error.localizedDescription)
         }
     }
 }
