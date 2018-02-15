@@ -35,6 +35,7 @@ class AuthenticationManager {
     func authenticate(withCredential credential: AuthCredential) -> Promise<User> {
         return Promise { fullfill, reject in
             Auth.auth().signIn(with: credential) { user, error in
+
                 if let error = error {
                     reject(error)
                     return

@@ -7,27 +7,44 @@
 //
 
 import UIKit
-import Cloudinary
 import FirebaseStorage
+import FirebaseAuth
+import Kingfisher
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: UIViewController, UINavigationControllerDelegate {
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
-    
     @IBOutlet weak var progressView: UIProgressView!
     
-    
-    let imagePicker = UIImagePickerController()
+    private let imagePicker = UIImagePickerController()
+    private let storageManager = FirebaseStorageManager()
+    private var profileUrl: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadUserInformation()
+    }
+    
+    private func loadUserInformation() {
+        guard let user = Auth.auth().currentUser else {
+            return
+        }
+        usernameTextField.text = user.displayName
+        if let profileUrl = user.photoURL {
+            profileImage.kf.setImage(with: profileUrl)
+        }
     }
 
     @IBAction func editProfile(_ sender: Any) {
-        
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = usernameTextField.text!
+        if let profileUrl = profileUrl {
+            changeRequest?.photoURL = profileUrl
+        }
+        changeRequest?.commitChanges { (error) in
+            // ...
+        }
     }
     
     @IBAction func changeProfileImage(_ sender: Any) {
@@ -56,36 +73,28 @@ class EditProfileViewController: UIViewController {
     }
     
     func uploadImage(imageToUpload: UIImage) {
-        profileImage.image = imageToUpload
-        let imageData = UIImageJPEGRepresentation(imageToUpload, 0.5)
-        let storage = Storage.storage()
-        let storageRef = storage.reference()
-        let riversRef = storageRef.child("images/profile")
-        
-        let metaData = StorageMetadata()
-        metaData.contentType = "image/jpg"
         progressView.isHidden = false
         progressView.progress = 0
-        let uploadTask = riversRef.putData(imageData!, metadata: metaData) { (metadata, error) in
-            guard let metadata = metadata else {
-                print(error?.localizedDescription ?? "")
-                return
-            }
-            // Metadata contains file metadata such as size, content-type, and download URL.
-            let downloadURL = metadata.downloadURL()?.absoluteString
-            print(downloadURL!)
+        let userId = Auth.auth().currentUser?.uid
+        let uploadTask = storageManager.uploadImage(imageToUpload: imageToUpload, userId: userId!, completion: { imageUrl in
+            self.profileUrl = imageUrl
+        }, errorHandler: {
+            
+        } )
+        
+        uploadTask.observe(.progress) { snapshot in
+            let percentComplete = Double(snapshot.progress!.completedUnitCount) / Double(snapshot.progress!.totalUnitCount)
+            self.progressView.progress = Float(percentComplete)
         }
         
         uploadTask.observe(.progress) { snapshot in
-            // Upload reported progress
-            let percentComplete = Double(snapshot.progress!.completedUnitCount)
-                / Double(snapshot.progress!.totalUnitCount)
-            self.progressView.progress = Float(percentComplete)
+            self.profileImage.image = imageToUpload
+            self.progressView.isHidden = true
         }
     }
 }
 
-extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditProfileViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         defer {
             picker.dismiss(animated: true)
@@ -94,7 +103,6 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
             return
         }
         uploadImage(imageToUpload: image)
-
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
