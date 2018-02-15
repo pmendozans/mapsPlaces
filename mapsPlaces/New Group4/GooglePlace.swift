@@ -23,15 +23,15 @@ class GooglePlace: NSObject, MKAnnotation {
     
     init(json: JSON)
     {
-        name = json["name"].stringValue
-        title = json["name"].stringValue
-        address = json["vicinity"].stringValue
-        photoReference = json["photos"][0]["photo_reference"].stringValue
-        let lat = json["geometry"]["location"]["lat"].doubleValue
-        let lng = json["geometry"]["location"]["lng"].doubleValue
-        rating = json["rating"].doubleValue
-        coordinate = CLLocationCoordinate2DMake(lat, lng)
+        name =              json["name"].stringValue
+        title =             json["name"].stringValue
+        address =           json["vicinity"].stringValue
+        photoReference =    json["photos"][0]["photo_reference"].stringValue
+        let lat =           json["geometry"]["location"]["lat"].doubleValue
+        let lng =           json["geometry"]["location"]["lng"].doubleValue
+        rating =            json["rating"].doubleValue
         let iconUrlString = json["icon"].stringValue
         iconUrl = URL(string: iconUrlString)
+        coordinate = CLLocationCoordinate2DMake(lat, lng)
     }
 }

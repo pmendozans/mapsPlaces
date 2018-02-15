@@ -30,7 +30,6 @@
 		728D44172033ABED00B20C36 /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D44142033ABED00B20C36 /* GooglePlace.swift */; };
 		728D44182033ABED00B20C36 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D44152033ABED00B20C36 /* PlaceMarker.swift */; };
 		728D441A2033B83500B20C36 /* NativeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D44192033B83500B20C36 /* NativeMapViewController.swift */; };
-		728D441D2033B9E700B20C36 /* MapLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D441C2033B9E700B20C36 /* MapLocation.swift */; };
 		728D441F2033BE4000B20C36 /* GooglePlacesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D441E2033BE4000B20C36 /* GooglePlacesRouter.swift */; };
 		728D44212033C08700B20C36 /* GoogleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D44202033C08700B20C36 /* GoogleConfiguration.swift */; };
 		72D621E82034AF8000DB1009 /* GooglePlacesDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D621E72034AF8000DB1009 /* GooglePlacesDecoder.swift */; };
@@ -42,6 +41,8 @@
 		72D621F720350FE100DB1009 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D621F620350FE100DB1009 /* ProfileViewController.swift */; };
 		72D621FA2035159700DB1009 /* ProfileHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D621F92035159700DB1009 /* ProfileHomeViewController.swift */; };
 		72D621FC20351B0E00DB1009 /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D621FB20351B0E00DB1009 /* MapAnnotationView.swift */; };
+		72DC7ACC2035F7E800A1FAE8 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7ACB2035F7E800A1FAE8 /* FirebaseStorageManager.swift */; };
+		72DC7AD3203617C800A1FAE8 /* DefaultsKeys+MapKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7AD2203617C800A1FAE8 /* DefaultsKeys+MapKeys.swift */; };
 		9A0890030112E2BD971F5746 /* Pods_mapsPlacesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16D1D8B26BBF333666C89CD /* Pods_mapsPlacesUITests.framework */; };
 		F193F858141E0AB485ADBCEC /* Pods_mapsPlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A1367CF755B0774C6B30D0 /* Pods_mapsPlaces.framework */; };
 /* End PBXBuildFile section */
@@ -95,7 +96,6 @@
 		728D44142033ABED00B20C36 /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
 		728D44152033ABED00B20C36 /* PlaceMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
 		728D44192033B83500B20C36 /* NativeMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeMapViewController.swift; sourceTree = "<group>"; };
-		728D441C2033B9E700B20C36 /* MapLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocation.swift; sourceTree = "<group>"; };
 		728D441E2033BE4000B20C36 /* GooglePlacesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesRouter.swift; sourceTree = "<group>"; };
 		728D44202033C08700B20C36 /* GoogleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleConfiguration.swift; sourceTree = "<group>"; };
 		72D621E72034AF8000DB1009 /* GooglePlacesDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesDecoder.swift; sourceTree = "<group>"; };
@@ -107,6 +107,8 @@
 		72D621F620350FE100DB1009 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		72D621F92035159700DB1009 /* ProfileHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeViewController.swift; sourceTree = "<group>"; };
 		72D621FB20351B0E00DB1009 /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
+		72DC7ACB2035F7E800A1FAE8 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
+		72DC7AD2203617C800A1FAE8 /* DefaultsKeys+MapKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultsKeys+MapKeys.swift"; sourceTree = "<group>"; };
 		73E242D1A6B00C7BF7A41DDC /* Pods_mapsPlacesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mapsPlacesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FEDF7C45312D522DA1F19A /* Pods-mapsPlaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mapsPlaces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mapsPlaces/Pods-mapsPlaces.debug.xcconfig"; sourceTree = "<group>"; };
 		81A1367CF755B0774C6B30D0 /* Pods_mapsPlaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mapsPlaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,6 +272,7 @@
 		725EE3A82033638400A90A52 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				72DC7ACD203604FA00A1FAE8 /* Firebase */,
 				728D44122033ABDD00B20C36 /* GoogleMaps */,
 				725EE3BD2033834500A90A52 /* Extensions */,
 				725EE3BE2033836200A90A52 /* AuthenticationManager.swift */,
@@ -284,6 +287,7 @@
 			children = (
 				725EE3BB203382CC00A90A52 /* UIView+InspecatbleBorders.swift */,
 				72D621F22034E51400DB1009 /* UIImage+Size.swift */,
+				72DC7AD2203617C800A1FAE8 /* DefaultsKeys+MapKeys.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -327,7 +331,6 @@
 		728D441B2033B9CB00B20C36 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				728D441C2033B9E700B20C36 /* MapLocation.swift */,
 				728D44142033ABED00B20C36 /* GooglePlace.swift */,
 			);
 			name = Models;
@@ -351,6 +354,14 @@
 				6EC12DEC203593A10093AC4F /* EditProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		72DC7ACD203604FA00A1FAE8 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				72DC7ACB2035F7E800A1FAE8 /* FirebaseStorageManager.swift */,
+			);
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		7F12752E2A824ABDD3D33501 /* Frameworks */ = {
@@ -656,7 +667,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-mapsPlaces/Pods-mapsPlaces-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
@@ -665,11 +675,13 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LKAlertController/LKAlertController.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -677,7 +689,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
@@ -686,11 +697,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LKAlertController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -722,11 +735,12 @@
 				725EE3BF2033836200A90A52 /* AuthenticationManager.swift in Sources */,
 				72D621FC20351B0E00DB1009 /* MapAnnotationView.swift in Sources */,
 				725EE3722033564E00A90A52 /* LoginViewController.swift in Sources */,
+				72DC7ACC2035F7E800A1FAE8 /* FirebaseStorageManager.swift in Sources */,
 				725EE3A6203362AE00A90A52 /* ApiManager.swift in Sources */,
 				725EE3BC203382CC00A90A52 /* UIView+InspecatbleBorders.swift in Sources */,
+				72DC7AD3203617C800A1FAE8 /* DefaultsKeys+MapKeys.swift in Sources */,
 				72D621F32034E51400DB1009 /* UIImage+Size.swift in Sources */,
 				72D621FA2035159700DB1009 /* ProfileHomeViewController.swift in Sources */,
-				728D441D2033B9E700B20C36 /* MapLocation.swift in Sources */,
 				72D621ED2034BAB600DB1009 /* PlaceInformationView.swift in Sources */,
 				72D621F12034DFFD00DB1009 /* MapsHelper.swift in Sources */,
 				725EE3702033564E00A90A52 /* AppDelegate.swift in Sources */,

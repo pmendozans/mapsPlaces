@@ -11,9 +11,11 @@ import UIKit
 
 class MapHelper {
     
+    private let nibName = "PlaceInformation"
+    
     func createMarkerView(googlePlace: GooglePlace) -> UIView {
         let viewWrapper = UIView(frame: CGRect.init(x: 0, y: 0, width: 150, height: 50))
-        let infoView = Bundle.main.loadNibNamed("PlaceInformation", owner: nil, options: nil)?.first as! PlaceInformationView
+        let infoView = Bundle.main.loadNibNamed(nibName, owner: nil, options: nil)?.first as! PlaceInformationView
         infoView.translatesAutoresizingMaskIntoConstraints = true
         infoView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         infoView.frame = viewWrapper.bounds

@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 import LKAlertController
+import SwiftyUserDefaults
 
 class GoogleMapViewController: ProfileViewController {
     
@@ -33,6 +34,22 @@ class GoogleMapViewController: ProfileViewController {
         mapView.delegate = self
         startLocationManager()
         setupMapToDefaultlocation()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setMapType()
+    }
+    
+    private func setMapType() {
+        guard let map = mapView else {
+            return
+        }
+        if Defaults[.isSateliteEnabled] {
+            map.mapType = .satellite
+            return
+        }
+        map.mapType = .normal
     }
     
     @objc private func willEnterForeground(_ notification: NSNotification!) {

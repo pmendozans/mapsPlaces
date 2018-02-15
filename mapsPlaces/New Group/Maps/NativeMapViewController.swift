@@ -9,8 +9,9 @@
 import UIKit
 import MapKit
 import Kingfisher
+import SwiftyUserDefaults
 
-class NativeMapViewController: UIViewController {
+class NativeMapViewController: ProfileViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -28,6 +29,22 @@ class NativeMapViewController: UIViewController {
         centerMapOnLocation(location: initialLocation)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setMapType()
+    }
+    
+    private func setMapType() {
+        guard let map = mapView else {
+            return
+        }
+        if Defaults[.isSateliteEnabled] {
+            map.mapType = .satellite
+            return
+        }
+        map.mapType = .standard
+    }
+    
     @objc private func willEnterForeground(_ notification: NSNotification!) {
         startLocationManager()
     }
@@ -36,7 +53,6 @@ class NativeMapViewController: UIViewController {
         googlePlacesViewModel.getNearvyPlaces(byLocation: coordinate)
             .then { places -> Void in
                 for place in places {
-                    //let marker = PlaceMarker(place: place)
                     self.mapView.addAnnotation(place)
                 }
         }
