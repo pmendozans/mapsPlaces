@@ -17,6 +17,9 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
     
+    @IBOutlet weak var progressView: UIProgressView!
+    
+    
     let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -61,16 +64,23 @@ class EditProfileViewController: UIViewController {
         
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
+        progressView.isHidden = false
+        progressView.progress = 0
         let uploadTask = riversRef.putData(imageData!, metadata: metaData) { (metadata, error) in
-            print(metadata)
-            print(error)
             guard let metadata = metadata else {
-                // Uh-oh, an error occurred!
+                print(error?.localizedDescription ?? "")
                 return
             }
             // Metadata contains file metadata such as size, content-type, and download URL.
             let downloadURL = metadata.downloadURL()?.absoluteString
-            print(downloadURL)
+            print(downloadURL!)
+        }
+        
+        uploadTask.observe(.progress) { snapshot in
+            // Upload reported progress
+            let percentComplete = Double(snapshot.progress!.completedUnitCount)
+                / Double(snapshot.progress!.totalUnitCount)
+            self.progressView.progress = Float(percentComplete)
         }
     }
 }
