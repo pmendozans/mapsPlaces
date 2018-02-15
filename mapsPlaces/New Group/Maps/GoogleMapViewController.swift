@@ -18,8 +18,6 @@ class GoogleMapViewController: UIViewController {
     private var didAskedForSettings = false
     private let locationManager = CLLocationManager()
     private let googlePlacesViewModel = GooglePlacesViewModel()
-    private var searchedTypes = ["bar", "cafe", "restaurant"]
-    private let searchRadius: Double = 1000
     private let mapHelper = MapHelper()
     private let requestForLocationAlert = ActionSheet(message: NSLocalizedString("turn-on-location", comment: ""))
                                             .addAction(NSLocalizedString("cancel", comment: ""))

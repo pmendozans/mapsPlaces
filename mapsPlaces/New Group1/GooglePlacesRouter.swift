@@ -14,10 +14,12 @@ enum GooglePlacesRouter: URLRequestConvertible {
     static let baseUrlString = "https://maps.googleapis.com"
     
     case getNearvyPlaces(latitude: Double, longitude: Double)
+    case getPlaceImage(reference: String)
     
     var method: HTTPMethod {
         switch self {
-        case .getNearvyPlaces:
+        case .getNearvyPlaces,
+             .getPlaceImage:
             return .get
         }
     }
@@ -26,6 +28,8 @@ enum GooglePlacesRouter: URLRequestConvertible {
         switch self {
         case .getNearvyPlaces:
             return "maps/api/place/nearbysearch/json"
+        case .getPlaceImage:
+            return "maps/api/place/photo"
         }
     }
     
@@ -40,6 +44,13 @@ enum GooglePlacesRouter: URLRequestConvertible {
                 "types": "food",
                 "key": GoogleConfiguration.webKey
             ]
+            
+        case .getPlaceImage(let reference):
+            return [
+                "maxwidth": 500,
+                "photoreference": reference,
+                "key": GoogleConfiguration.webKey
+            ]
         }
     }
     
@@ -48,7 +59,8 @@ enum GooglePlacesRouter: URLRequestConvertible {
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue
         switch self {
-        case .getNearvyPlaces:
+        case .getNearvyPlaces,
+             .getPlaceImage:
             urlRequest = try URLEncoding.default.encode(urlRequest, with: params)
         }
         

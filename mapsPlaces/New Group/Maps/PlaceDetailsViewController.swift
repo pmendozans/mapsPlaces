@@ -8,6 +8,7 @@
 
 import UIKit
 import Cosmos
+import Kingfisher
 
 class PlaceDetailsViewController: UIViewController {
     
@@ -29,5 +30,12 @@ class PlaceDetailsViewController: UIViewController {
     private func loadPlaceDataToViews(){
         ratingStars.rating = googlePlace.rating
         placeName.text = googlePlace.name
+
+        guard !googlePlace.photoReference.isEmpty,
+            let imageUrl = GooglePlacesRouter.getPlaceImage(reference: googlePlace.photoReference).urlRequest?.url else {
+            placeImage.image = #imageLiteral(resourceName: "restaurant")
+            return
+        }
+        self.placeImage.kf.setImage(with: imageUrl)
     }
 }

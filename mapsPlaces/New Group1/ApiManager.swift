@@ -13,7 +13,9 @@ import Alamofire
 class ApiManager {
     
     func genericRequest(request: URLRequestConvertible) -> Promise<[String: Any]>{
+        
         let requestError = CustomError(message: "Request Error").createCustomError()
+        
         return Promise { fullfill, reject in
             Alamofire.request(request).validate().responseJSON { response in
                 switch response.result {

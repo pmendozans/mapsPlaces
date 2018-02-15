@@ -13,8 +13,8 @@ import FacebookLogin
 
 class LoginViewController: UIViewController {
     
-    let authenticationManager = AuthenticationManager()
-    let loginToMapsSegue = "loginToMapsSegue"
+    private let authenticationManager = AuthenticationManager()
+    private let loginToMapsSegue = "loginToMapsSegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
