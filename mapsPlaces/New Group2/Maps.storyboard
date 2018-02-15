@@ -174,7 +174,7 @@
         <!--Native-->
         <scene sceneID="uI9-kK-qCi">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aUu-wM-Nva" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aUu-wM-Nva" customClass="ProfileNavigationController" customModule="mapsPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Native" image="tab-ios-logo" id="aKy-5H-qf3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vnL-6z-gTc">
@@ -196,7 +196,7 @@
         <!--Google-->
         <scene sceneID="gjo-cL-lVd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wJ0-z3-NNH" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wJ0-z3-NNH" customClass="ProfileNavigationController" customModule="mapsPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Google" image="tab-google-logo" id="WBB-bK-1pJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cZc-v8-tRI">

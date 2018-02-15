@@ -11,7 +11,7 @@ import GoogleMaps
 import CoreLocation
 import LKAlertController
 
-class GoogleMapViewController: UIViewController {
+class GoogleMapViewController: ProfileViewController {
     
     @IBOutlet weak var mapView: GMSMapView!
     

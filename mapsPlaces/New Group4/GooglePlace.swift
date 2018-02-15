@@ -19,10 +19,12 @@ class GooglePlace: NSObject, MKAnnotation {
     var rating: Double
     var photoReference: String
     var iconUrl: URL?
+    let title: String?
     
     init(json: JSON)
     {
         name = json["name"].stringValue
+        title = json["name"].stringValue
         address = json["vicinity"].stringValue
         photoReference = json["photos"][0]["photo_reference"].stringValue
         let lat = json["geometry"]["location"]["lat"].doubleValue

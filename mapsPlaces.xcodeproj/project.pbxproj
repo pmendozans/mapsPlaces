@@ -38,7 +38,9 @@
 		72D621F12034DFFD00DB1009 /* MapsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D621F02034DFFD00DB1009 /* MapsHelper.swift */; };
 		72D621F32034E51400DB1009 /* UIImage+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D621F22034E51400DB1009 /* UIImage+Size.swift */; };
 		72D621F52034E9D300DB1009 /* PlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D621F42034E9D300DB1009 /* PlaceDetailsViewController.swift */; };
-		72D621F720350FE100DB1009 /* ProfileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D621F620350FE100DB1009 /* ProfileNavigationController.swift */; };
+		72D621F720350FE100DB1009 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D621F620350FE100DB1009 /* ProfileViewController.swift */; };
+		72D621FA2035159700DB1009 /* ProfileHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D621F92035159700DB1009 /* ProfileHomeViewController.swift */; };
+		72D621FC20351B0E00DB1009 /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D621FB20351B0E00DB1009 /* MapAnnotationView.swift */; };
 		9A0890030112E2BD971F5746 /* Pods_mapsPlacesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16D1D8B26BBF333666C89CD /* Pods_mapsPlacesUITests.framework */; };
 		F193F858141E0AB485ADBCEC /* Pods_mapsPlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A1367CF755B0774C6B30D0 /* Pods_mapsPlaces.framework */; };
 /* End PBXBuildFile section */
@@ -100,7 +102,9 @@
 		72D621F02034DFFD00DB1009 /* MapsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsHelper.swift; sourceTree = "<group>"; };
 		72D621F22034E51400DB1009 /* UIImage+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Size.swift"; sourceTree = "<group>"; };
 		72D621F42034E9D300DB1009 /* PlaceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewController.swift; sourceTree = "<group>"; };
-		72D621F620350FE100DB1009 /* ProfileNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavigationController.swift; sourceTree = "<group>"; };
+		72D621F620350FE100DB1009 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		72D621F92035159700DB1009 /* ProfileHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeViewController.swift; sourceTree = "<group>"; };
+		72D621FB20351B0E00DB1009 /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
 		73E242D1A6B00C7BF7A41DDC /* Pods_mapsPlacesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mapsPlacesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FEDF7C45312D522DA1F19A /* Pods-mapsPlaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mapsPlaces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mapsPlaces/Pods-mapsPlaces.debug.xcconfig"; sourceTree = "<group>"; };
 		81A1367CF755B0774C6B30D0 /* Pods_mapsPlaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mapsPlaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,9 +230,10 @@
 		725EE3A32033626000A90A52 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				72D621F82035158600DB1009 /* Profile */,
 				728D44062033973900B20C36 /* Maps */,
 				728D44052033973000B20C36 /* Login */,
-				72D621F620350FE100DB1009 /* ProfileNavigationController.swift */,
+				72D621F620350FE100DB1009 /* ProfileViewController.swift */,
 			);
 			name = Controllers;
 			path = "New Group";
@@ -332,8 +337,17 @@
 			children = (
 				72D621EA2034B9BD00DB1009 /* PlaceInformation.xib */,
 				72D621EC2034BAB600DB1009 /* PlaceInformationView.swift */,
+				72D621FB20351B0E00DB1009 /* MapAnnotationView.swift */,
 			);
 			path = Nibs;
+			sourceTree = "<group>";
+		};
+		72D621F82035158600DB1009 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				72D621F92035159700DB1009 /* ProfileHomeViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		7F12752E2A824ABDD3D33501 /* Frameworks */ = {
@@ -688,7 +702,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				728D440A2033977400B20C36 /* GoogleMapViewController.swift in Sources */,
-				72D621F720350FE100DB1009 /* ProfileNavigationController.swift in Sources */,
+				72D621F720350FE100DB1009 /* ProfileViewController.swift in Sources */,
 				6E9437BF203464F5008756ED /* GooglePlacesService.swift in Sources */,
 				728D441A2033B83500B20C36 /* NativeMapViewController.swift in Sources */,
 				728D44212033C08700B20C36 /* GoogleConfiguration.swift in Sources */,
@@ -700,10 +714,12 @@
 				6E9437C22034698E008756ED /* GooglePlacesViewModel.swift in Sources */,
 				728D44042033896B00B20C36 /* CustomError.swift in Sources */,
 				725EE3BF2033836200A90A52 /* AuthenticationManager.swift in Sources */,
+				72D621FC20351B0E00DB1009 /* MapAnnotationView.swift in Sources */,
 				725EE3722033564E00A90A52 /* LoginViewController.swift in Sources */,
 				725EE3A6203362AE00A90A52 /* ApiManager.swift in Sources */,
 				725EE3BC203382CC00A90A52 /* UIView+InspecatbleBorders.swift in Sources */,
 				72D621F32034E51400DB1009 /* UIImage+Size.swift in Sources */,
+				72D621FA2035159700DB1009 /* ProfileHomeViewController.swift in Sources */,
 				728D441D2033B9E700B20C36 /* MapLocation.swift in Sources */,
 				72D621ED2034BAB600DB1009 /* PlaceInformationView.swift in Sources */,
 				72D621F12034DFFD00DB1009 /* MapsHelper.swift in Sources */,
