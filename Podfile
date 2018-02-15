@@ -15,13 +15,15 @@ target 'mapsPlaces' do
   pod 'FirebaseUI/Google'
   pod 'FirebaseUI/Facebook'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'GoogleMaps'
   pod 'SwiftyJSON'
   pod 'Kingfisher'
   pod 'Cosmos', '~> 14.0'
-
+  pod 'Cloudinary'
+  
   target 'mapsPlacesTests' do
     inherit! :search_paths
     # Pods for testing

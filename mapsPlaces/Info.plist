@@ -76,5 +76,9 @@
         <key>NSAllowsArbitraryLoads</key>
         <true/>
     </dict>
+    <key>NSCameraUsageDescription</key>
+    <string>Queremos usar tu cámara para que puedas actualizar tu imagen de perfil</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Queremos acceder a tus fotos para que puedas actualizar tu imagen de perfil</string>
 </dict>
 </plist>
