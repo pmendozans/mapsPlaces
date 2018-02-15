@@ -96,10 +96,12 @@ class NativeMapViewController: ProfileViewController {
 // MARK: - CLLocationManagerDelegate
 extension NativeMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            centerMapOnLocation(location: location)
-            fetchNearbyPlaces(coordinate: location.coordinate)
+        guard let location = locations.first else {
+            return
         }
+        centerMapOnLocation(location: location)
+        fetchNearbyPlaces(coordinate: location.coordinate)
+        //locationManager.stopUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

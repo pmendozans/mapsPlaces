@@ -43,23 +43,14 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
             changeRequest?.photoURL = profileUrl
         }
         changeRequest?.commitChanges { (error) in
-            // ...
+            if error == nil {
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
     
     @IBAction func changeProfileImage(_ sender: Any) {
         self.openPhotoLibrary()
-    }
-    
-    func openCamera() {
-        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            print("This device doesn't have a camera.")
-            return
-        }
-        imagePicker.sourceType = .camera
-        imagePicker.cameraDevice = .rear
-        imagePicker.delegate = self
-        present(imagePicker, animated: true)
     }
     
     func openPhotoLibrary() {
