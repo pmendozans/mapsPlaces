@@ -6,8 +6,6 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
-  - Cloudinary (2.2.1):
-    - Alamofire (~> 4.6.0)
   - Cosmos (14.0.0)
   - FacebookCore (0.3.0):
     - Bolts (~> 1.8)
@@ -89,6 +87,7 @@ PODS:
   - GTMSessionFetcher/Core (1.1.13)
   - GTMSessionFetcher/Full (1.1.13):
     - GTMSessionFetcher/Core (= 1.1.13)
+  - IQKeyboardManagerSwift (5.0.7)
   - Kingfisher (4.6.2)
   - leveldb-library (1.20)
   - LKAlertController (1.12.1)
@@ -110,10 +109,10 @@ PODS:
   - PromiseKit/UIKit (4.5.2):
     - PromiseKit/CorePromise
   - SwiftyJSON (4.0.0)
+  - SwiftyUserDefaults (3.0.1)
 
 DEPENDENCIES:
   - Alamofire
-  - Cloudinary
   - Cosmos (~> 14.0)
   - FacebookCore
   - FacebookLogin
@@ -124,16 +123,17 @@ DEPENDENCIES:
   - FirebaseUI/Facebook
   - FirebaseUI/Google
   - GoogleMaps
+  - IQKeyboardManagerSwift
   - Kingfisher
   - LKAlertController
   - ObjectMapper (~> 3.1)
   - PromiseKit (~> 4.4)
   - SwiftyJSON
+  - SwiftyUserDefaults
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  Cloudinary: 07e097f695655a8aae869f0de157e9f12671282f
   Cosmos: 6dd44b65d587033e690ae1c350c875d262a23fda
   FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
   FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
@@ -152,6 +152,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 5bb1eae636127de695590f50e7d248483eb891e6
+  IQKeyboardManagerSwift: 30fb3a61de1af53a95e02b80fb54ed0a19d5ede5
   Kingfisher: 55b9c395bf8d3949676ad3861111923990ab68cf
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   LKAlertController: e229465c0b4543ea122bfe62567747e6213ee43f
@@ -159,7 +160,8 @@ SPEC CHECKSUMS:
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   PromiseKit: 743e497a5f505a470d3bbbf4ce0663c1268af0a4
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  SwiftyUserDefaults: 3d273b1739b68ada3145dc754a70ec775bc5c8be
 
-PODFILE CHECKSUM: 328eeef13c358a5bb230afa433b248fd6d14ffd5
+PODFILE CHECKSUM: a134f9503513f561ef2cc0e2f45dc362cc5bdd8c
 
 COCOAPODS: 1.4.0

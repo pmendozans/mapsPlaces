@@ -9,7 +9,9 @@ target 'mapsPlaces' do
   pod 'Alamofire'
   pod 'PromiseKit', '~> 4.4'
   pod 'ObjectMapper', '~> 3.1'
-  pod 'LKAlertController' 
+  pod 'LKAlertController'
+  pod 'SwiftyUserDefaults'
+  pod 'IQKeyboardManagerSwift'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'FirebaseUI/Google'
@@ -22,7 +24,6 @@ target 'mapsPlaces' do
   pod 'SwiftyJSON'
   pod 'Kingfisher'
   pod 'Cosmos', '~> 14.0'
-  pod 'Cloudinary'
   
   target 'mapsPlacesTests' do
     inherit! :search_paths
