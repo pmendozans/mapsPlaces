@@ -44,6 +44,8 @@
 		72DC7ACC2035F7E800A1FAE8 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7ACB2035F7E800A1FAE8 /* FirebaseStorageManager.swift */; };
 		72DC7AD3203617C800A1FAE8 /* DefaultsKeys+MapKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7AD2203617C800A1FAE8 /* DefaultsKeys+MapKeys.swift */; };
 		72DC7AD520362E2400A1FAE8 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7AD420362E2400A1FAE8 /* NavigationManager.swift */; };
+		72DC7AD72036317300A1FAE8 /* CLLocationCoordinate2D+Distances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7AD62036317300A1FAE8 /* CLLocationCoordinate2D+Distances.swift */; };
+		72DC7B172036437E00A1FAE8 /* MapsPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7B152036437E00A1FAE8 /* MapsPlaces.xcdatamodeld */; };
 		9A0890030112E2BD971F5746 /* Pods_mapsPlacesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16D1D8B26BBF333666C89CD /* Pods_mapsPlacesUITests.framework */; };
 		F193F858141E0AB485ADBCEC /* Pods_mapsPlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A1367CF755B0774C6B30D0 /* Pods_mapsPlaces.framework */; };
 /* End PBXBuildFile section */
@@ -111,6 +113,8 @@
 		72DC7ACB2035F7E800A1FAE8 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		72DC7AD2203617C800A1FAE8 /* DefaultsKeys+MapKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultsKeys+MapKeys.swift"; sourceTree = "<group>"; };
 		72DC7AD420362E2400A1FAE8 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		72DC7AD62036317300A1FAE8 /* CLLocationCoordinate2D+Distances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Distances.swift"; sourceTree = "<group>"; };
+		72DC7B162036437E00A1FAE8 /* MapsPlaces.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MapsPlaces.xcdatamodel; sourceTree = "<group>"; };
 		73E242D1A6B00C7BF7A41DDC /* Pods_mapsPlacesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mapsPlacesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FEDF7C45312D522DA1F19A /* Pods-mapsPlaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mapsPlaces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mapsPlaces/Pods-mapsPlaces.debug.xcconfig"; sourceTree = "<group>"; };
 		81A1367CF755B0774C6B30D0 /* Pods_mapsPlaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mapsPlaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -291,6 +295,7 @@
 				725EE3BB203382CC00A90A52 /* UIView+InspecatbleBorders.swift */,
 				72D621F22034E51400DB1009 /* UIImage+Size.swift */,
 				72DC7AD2203617C800A1FAE8 /* DefaultsKeys+MapKeys.swift */,
+				72DC7AD62036317300A1FAE8 /* CLLocationCoordinate2D+Distances.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				728D440C20339C7300B20C36 /* Localizable.strings */,
+				72DC7B152036437E00A1FAE8 /* MapsPlaces.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -726,6 +732,7 @@
 				72D621F720350FE100DB1009 /* ProfileViewController.swift in Sources */,
 				6E9437BF203464F5008756ED /* GooglePlacesService.swift in Sources */,
 				728D441A2033B83500B20C36 /* NativeMapViewController.swift in Sources */,
+				72DC7B172036437E00A1FAE8 /* MapsPlaces.xcdatamodeld in Sources */,
 				728D44212033C08700B20C36 /* GoogleConfiguration.swift in Sources */,
 				728D44182033ABED00B20C36 /* PlaceMarker.swift in Sources */,
 				72D621E82034AF8000DB1009 /* GooglePlacesDecoder.swift in Sources */,
@@ -738,6 +745,7 @@
 				728D44042033896B00B20C36 /* CustomError.swift in Sources */,
 				725EE3BF2033836200A90A52 /* AuthenticationManager.swift in Sources */,
 				72D621FC20351B0E00DB1009 /* MapAnnotationView.swift in Sources */,
+				72DC7AD72036317300A1FAE8 /* CLLocationCoordinate2D+Distances.swift in Sources */,
 				725EE3722033564E00A90A52 /* LoginViewController.swift in Sources */,
 				72DC7ACC2035F7E800A1FAE8 /* FirebaseStorageManager.swift in Sources */,
 				725EE3A6203362AE00A90A52 /* ApiManager.swift in Sources */,
@@ -1043,6 +1051,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		72DC7B152036437E00A1FAE8 /* MapsPlaces.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				72DC7B162036437E00A1FAE8 /* MapsPlaces.xcdatamodel */,
+			);
+			currentVersion = 72DC7B162036437E00A1FAE8 /* MapsPlaces.xcdatamodel */;
+			path = MapsPlaces.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 725EE3642033564E00A90A52 /* Project object */;
 }
