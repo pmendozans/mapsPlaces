@@ -4,9 +4,10 @@
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageUrl" optional="YES" attributeType="URI" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FirebaseUser" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="FirebaseUser" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>

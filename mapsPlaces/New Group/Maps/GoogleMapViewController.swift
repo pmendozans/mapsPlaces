@@ -20,6 +20,7 @@ class GoogleMapViewController: ProfileViewController {
     private let locationManager = CLLocationManager()
     private let googlePlacesViewModel = GooglePlacesViewModel()
     private let mapHelper = MapHelper()
+    private var lastFarLocation: CLLocation?
     private let requestForLocationAlert = ActionSheet(message: NSLocalizedString("turn-on-location", comment: ""))
                                             .addAction(NSLocalizedString("cancel", comment: ""))
                                             .addAction(NSLocalizedString("open-settings", comment: ""), style: UIAlertActionStyle.default) { action in
@@ -97,10 +98,12 @@ class GoogleMapViewController: ProfileViewController {
 // MARK: - CLLocationManagerDelegate
 extension GoogleMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-            fetchNearbyPlaces(coordinate: mapView.camera.target)
+        guard let location = locations.first else {
+            return
         }
+        mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+        fetchNearbyPlaces(coordinate: mapView.camera.target)
+        //locationManager.stopUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

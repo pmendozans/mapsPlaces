@@ -9,5 +9,5 @@
 import Foundation
 
 enum GoogleConfiguration {
-    static let webKey = "AIzaSyC5n9hgRoOww42foA6mQ1MpBEkGlyAl9FY"
+    static let webKey = "AIzaSyCfQ1PFD4tVMyNz9wwVHCRGCfIVYOb9v2A"
 }

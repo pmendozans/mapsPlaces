@@ -23,12 +23,13 @@ class ProfileHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadUserInformation()
         mapModeSwitch.isOn = Defaults[.isSateliteEnabled]
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        loadUserInformation()
+        //loadUserInformation()
     }
     
     private func loadUserInformation() {

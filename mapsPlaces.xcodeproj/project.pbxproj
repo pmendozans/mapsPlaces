@@ -45,7 +45,7 @@
 		72DC7AD3203617C800A1FAE8 /* DefaultsKeys+MapKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7AD2203617C800A1FAE8 /* DefaultsKeys+MapKeys.swift */; };
 		72DC7AD520362E2400A1FAE8 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7AD420362E2400A1FAE8 /* NavigationManager.swift */; };
 		72DC7AD72036317300A1FAE8 /* CLLocationCoordinate2D+Distances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7AD62036317300A1FAE8 /* CLLocationCoordinate2D+Distances.swift */; };
-		72DC7B172036437E00A1FAE8 /* MapsPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7B152036437E00A1FAE8 /* MapsPlaces.xcdatamodeld */; };
+		72DC7B182036466900A1FAE8 /* MapsPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7B152036437E00A1FAE8 /* MapsPlaces.xcdatamodeld */; };
 		9A0890030112E2BD971F5746 /* Pods_mapsPlacesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16D1D8B26BBF333666C89CD /* Pods_mapsPlacesUITests.framework */; };
 		F193F858141E0AB485ADBCEC /* Pods_mapsPlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A1367CF755B0774C6B30D0 /* Pods_mapsPlaces.framework */; };
 /* End PBXBuildFile section */
@@ -732,7 +732,7 @@
 				72D621F720350FE100DB1009 /* ProfileViewController.swift in Sources */,
 				6E9437BF203464F5008756ED /* GooglePlacesService.swift in Sources */,
 				728D441A2033B83500B20C36 /* NativeMapViewController.swift in Sources */,
-				72DC7B172036437E00A1FAE8 /* MapsPlaces.xcdatamodeld in Sources */,
+				72DC7B182036466900A1FAE8 /* MapsPlaces.xcdatamodeld in Sources */,
 				728D44212033C08700B20C36 /* GoogleConfiguration.swift in Sources */,
 				728D44182033ABED00B20C36 /* PlaceMarker.swift in Sources */,
 				72D621E82034AF8000DB1009 /* GooglePlacesDecoder.swift in Sources */,

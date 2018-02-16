@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GIDSignIn.sharedInstance().delegate = self
         GMSServices.provideAPIKey("AIzaSyC5n9hgRoOww42foA6mQ1MpBEkGlyAl9FY")
         checkIfLogged()
+        let dummyUser = NSEntityDescription.insertNewObject(forEntityName: "FirebaseUser", into: persistentContainer.viewContext) as! FirebaseUser
+        dummyUser
         return true
     }
 
