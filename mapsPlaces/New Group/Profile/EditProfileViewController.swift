@@ -20,6 +20,7 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
     private let imagePicker = UIImagePickerController()
     private let storageManager = FirebaseStorageManager()
     private var profileUrl: URL?
+    private let userDataManager = UserDataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,7 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         }
         changeRequest?.commitChanges { (error) in
             if error == nil {
+                self.userDataManager.updateUser(user: Auth.auth().currentUser!)
                 self.navigationController?.popViewController(animated: true)
             }
         }
@@ -55,7 +57,7 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
     
     func openPhotoLibrary() {
         guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
-            print("Can't open photo library")
+            MPAlerts.cantOpenLibrary.show()
             return
         }
         imagePicker.sourceType = .photoLibrary

@@ -12,28 +12,19 @@ import Kingfisher
 import SwiftyUserDefaults
 import LKAlertController
 
-class NativeMapViewController: ProfileViewController {
+class NativeMapViewController: MapViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    private var didAskedForSettings = false
-    private let locationManager = CLLocationManager()
+    
     private let googlePlacesViewModel = GooglePlacesViewModel()
     private let initialLocation = CLLocation(latitude: 29.097, longitude: -111.022)
     private let regionRadius: CLLocationDistance = 1000
-    private let requestForLocationAlert = ActionSheet(message: NSLocalizedString("turn-on-location", comment: ""))
-        .addAction(NSLocalizedString("cancel", comment: ""))
-        .addAction(NSLocalizedString("open-settings", comment: ""), style: UIAlertActionStyle.default) { action in
-            if let url = URL(string:UIApplicationOpenSettingsURLString) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
         mapView.delegate = self
-        startLocationManager()
         centerMapOnLocation(location: initialLocation)
     }
     
@@ -53,10 +44,6 @@ class NativeMapViewController: ProfileViewController {
         map.mapType = .standard
     }
     
-    @objc private func willEnterForeground(_ notification: NSNotification!) {
-        startLocationManager()
-    }
-    
     func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
         googlePlacesViewModel.getNearvyPlaces(byLocation: coordinate)
             .then { places -> Void in
@@ -66,30 +53,10 @@ class NativeMapViewController: ProfileViewController {
         }
     }
     
-    private func startLocationManager() {
-        if CLLocationManager.authorizationStatus() == .notDetermined {
-            locationManager.requestWhenInUseAuthorization()
-        }
-        else if CLLocationManager.authorizationStatus() == .denied {
-            NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground(_:)), name: .UIApplicationWillEnterForeground, object: nil)
-            if !didAskedForSettings{
-                requestForLocationAlert.show()
-                didAskedForSettings = true
-            }
-        }
-        locationManager.startUpdatingLocation()
-    }
-    
     private func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
-    }
-    
-    private func openDetailsViewController(place: GooglePlace) {
-        let detailsViewController = storyboard?.instantiateViewController(withIdentifier: "PlaceDetailsViewController") as! PlaceDetailsViewController
-        detailsViewController.googlePlace = place
-        navigationController?.pushViewController(detailsViewController, animated: true)
     }
 }
 
@@ -101,7 +68,7 @@ extension NativeMapViewController: CLLocationManagerDelegate {
         }
         centerMapOnLocation(location: location)
         fetchNearbyPlaces(coordinate: location.coordinate)
-        //locationManager.stopUpdatingLocation()
+        locationManager.stopUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -115,7 +82,6 @@ extension NativeMapViewController: MKMapViewDelegate {
         
         guard let annotation = annotation as? GooglePlace else {
             return nil
-            
         }
         let identifier = "googlePlace"
         var view: MKMarkerAnnotationView

@@ -32,6 +32,6 @@ class GooglePlace: NSObject, MKAnnotation {
         rating =            json["rating"].doubleValue
         let iconUrlString = json["icon"].stringValue
         iconUrl = URL(string: iconUrlString)
-        coordinate = CLLocationCoordinate2DMake(lat, lng)
+        coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
     }
 }

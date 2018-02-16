@@ -9,3 +9,4 @@
 "turn-on-location" = "turn on location to find places near you.";
 "cancel" = "Cancel";
 "open-settings" = "Open Settings";
+"login-error" = "Something went wrong, try again";

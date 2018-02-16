@@ -15,6 +15,8 @@ import SwiftyUserDefaults
 
 class AuthenticationManager {
     
+    private let dataManager = UserDataManager()
+    
     func loginWithFacebook() -> Promise<AuthCredential> {
         return Promise { fullfill, reject in
             let facebookLoginManager = LoginManager()
@@ -36,7 +38,6 @@ class AuthenticationManager {
     func authenticate(withCredential credential: AuthCredential) -> Promise<User> {
         return Promise { fullfill, reject in
             Auth.auth().signIn(with: credential) { user, error in
-
                 if let error = error {
                     reject(error)
                     return
@@ -47,6 +48,8 @@ class AuthenticationManager {
                     return
                 }
                 Defaults[.isLoggedIn] = true
+                Defaults[.userUid] = user.uid
+                self.dataManager.saveUserIfNotExists(user: user)
                 fullfill(user)
             }
         }

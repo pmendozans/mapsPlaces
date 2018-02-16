@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
             self.performSegue(withIdentifier: self.loginToMapsSegue, sender: nil)
         }
         .catch{ error in
-            print(error.localizedDescription)
+            MPAlerts.loginError.show()
         }
     }
     
@@ -56,8 +56,7 @@ extension LoginViewController : GIDSignInDelegate, GIDSignInUIDelegate {
             self.performSegue(withIdentifier: self.loginToMapsSegue, sender: nil)
         }
         .catch { error in
-            print(error.localizedDescription)
+            MPAlerts.loginError.show()
         }
-        
     }
 }

@@ -17,35 +17,47 @@ class ProfileHomeViewController: UIViewController {
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var mapModeSwitch: UISwitch!
+    @IBOutlet weak var streetsImage: UIImageView!
+    @IBOutlet weak var satelliteImage: UIImageView!
     
-    let authenticationMnager = AuthenticationManager()
-    let navigationManager = NavigationManager()
+    private let authenticationMnager = AuthenticationManager()
+    private let navigationManager = NavigationManager()
+    private let userDataManager = UserDataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadUserInformation()
         mapModeSwitch.isOn = Defaults[.isSateliteEnabled]
+        updateImagesAlpha()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //loadUserInformation()
+        loadUserInformation()
     }
     
     private func loadUserInformation() {
-        guard let user = Auth.auth().currentUser else {
+        guard let localUser = userDataManager.fetchUser(byUid: Defaults[.userUid]) else {
             return
         }
-        usernameLabel.text = user.displayName
-        phoneNumberLabel.text = user.phoneNumber
-        emailLabel.text = user.email
-        if let profileUrl = user.photoURL {
-            profileImage.kf.setImage(with: profileUrl)
+        usernameLabel.text = localUser.username
+        phoneNumberLabel.text = localUser.phoneNumber
+        emailLabel.text = localUser.email
+        if let profileUrl = localUser.imageUrl {
+            profileImage.kf.setImage(with: profileUrl, placeholder: profileImage.image)
         }
+    }
+    
+    private func updateImagesAlpha() {
+        UIView.animate(withDuration: 0.4, animations: {
+            self.streetsImage.alpha = self.mapModeSwitch.isOn ? 0.2 : 1
+            self.satelliteImage.alpha = self.mapModeSwitch.isOn ? 1 : 0.2
+        })
     }
     
     @IBAction func mapMode(_ sender: UISwitch) {
         Defaults[.isSateliteEnabled] = sender.isOn
+        updateImagesAlpha()
     }
     
     @IBAction func logout(_ sender: Any) {

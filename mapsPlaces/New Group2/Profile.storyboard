@@ -220,6 +220,8 @@
                         <outlet property="mapModeSwitch" destination="lAO-fP-GGk" id="B5V-b8-rO5"/>
                         <outlet property="phoneNumberLabel" destination="mqP-VZ-Jlp" id="jJS-L4-FJ1"/>
                         <outlet property="profileImage" destination="Md2-IX-AZE" id="PYf-yk-tJU"/>
+                        <outlet property="satelliteImage" destination="zG6-87-ZeM" id="iVE-Ha-RYO"/>
+                        <outlet property="streetsImage" destination="9c4-ls-2dL" id="aUK-Kj-mXh"/>
                         <outlet property="usernameLabel" destination="MoA-MP-u7C" id="LKJ-6O-HXy"/>
                     </connections>
                 </viewController>
