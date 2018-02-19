@@ -19,5 +19,5 @@ enum MPAlerts {
                                                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
                                             }
                                         })
-                                            
+
 }

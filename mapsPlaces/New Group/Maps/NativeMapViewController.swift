@@ -16,10 +16,10 @@ class NativeMapViewController: MapViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    
     private let googlePlacesViewModel = GooglePlacesViewModel()
     private let initialLocation = CLLocation(latitude: 29.097, longitude: -111.022)
     private let regionRadius: CLLocationDistance = 1000
+    private let mapAnnotationIdentifier = "googlePlace"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +58,20 @@ class NativeMapViewController: MapViewController {
                                                                   regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
+    
+    private func useExistingAnotationView(annotation: GooglePlace) -> MKMarkerAnnotationView{
+        var annotationView: MKMarkerAnnotationView
+        annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: mapAnnotationIdentifier)
+        annotationView.canShowCallout = true
+        annotationView.calloutOffset = CGPoint(x: -5, y: 5)
+        annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        if let iconUrl = annotation.iconUrl {
+            KingfisherManager.shared.retrieveImage(with: iconUrl, options: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
+                annotationView.glyphImage = image?.scale(toSize: CGSize(width: 20, height: 20))
+            })
+        }
+        return annotationView
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -83,25 +97,13 @@ extension NativeMapViewController: MKMapViewDelegate {
         guard let annotation = annotation as? GooglePlace else {
             return nil
         }
-        let identifier = "googlePlace"
-        var view: MKMarkerAnnotationView
-        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: mapAnnotationIdentifier)
             as? MKMarkerAnnotationView {
             dequeuedView.annotation = annotation
-            view = dequeuedView
-            view.image = nil
-        } else {
-            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            view.canShowCallout = true
-            view.calloutOffset = CGPoint(x: -5, y: 5)
-            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            if let iconUrl = annotation.iconUrl {
-                KingfisherManager.shared.retrieveImage(with: iconUrl, options: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
-                    view.glyphImage = image?.scale(toSize: CGSize(width: 20, height: 20))
-                })
-            }
+            return dequeuedView
         }
-        return view
+        return useExistingAnotationView(annotation: annotation)
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
