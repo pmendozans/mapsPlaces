@@ -34,6 +34,7 @@
 		728D44212033C08700B20C36 /* GoogleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D44202033C08700B20C36 /* GoogleConfiguration.swift */; };
 		72B9F63720374C3A0010D953 /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B9F63620374C3A0010D953 /* UserDataManager.swift */; };
 		72B9F639203765530010D953 /* MPAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B9F638203765530010D953 /* MPAlerts.swift */; };
+		72B9F63B2037AA6B0010D953 /* CustomIOSMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B9F63A2037AA6B0010D953 /* CustomIOSMarker.swift */; };
 		72D621E82034AF8000DB1009 /* GooglePlacesDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D621E72034AF8000DB1009 /* GooglePlacesDecoder.swift */; };
 		72D621EB2034B9BD00DB1009 /* PlaceInformation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D621EA2034B9BD00DB1009 /* PlaceInformation.xib */; };
 		72D621ED2034BAB600DB1009 /* PlaceInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D621EC2034BAB600DB1009 /* PlaceInformationView.swift */; };
@@ -104,6 +105,7 @@
 		728D44202033C08700B20C36 /* GoogleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleConfiguration.swift; sourceTree = "<group>"; };
 		72B9F63620374C3A0010D953 /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		72B9F638203765530010D953 /* MPAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAlerts.swift; sourceTree = "<group>"; };
+		72B9F63A2037AA6B0010D953 /* CustomIOSMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIOSMarker.swift; sourceTree = "<group>"; };
 		72D621E72034AF8000DB1009 /* GooglePlacesDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesDecoder.swift; sourceTree = "<group>"; };
 		72D621EA2034B9BD00DB1009 /* PlaceInformation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceInformation.xib; sourceTree = "<group>"; };
 		72D621EC2034BAB600DB1009 /* PlaceInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInformationView.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				728D44092033977400B20C36 /* GoogleMapViewController.swift */,
 				728D44192033B83500B20C36 /* NativeMapViewController.swift */,
 				72D621F42034E9D300DB1009 /* PlaceDetailsViewController.swift */,
+				72B9F63A2037AA6B0010D953 /* CustomIOSMarker.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -751,6 +754,7 @@
 				725EE3BF2033836200A90A52 /* AuthenticationManager.swift in Sources */,
 				72DC7AD72036317300A1FAE8 /* CLLocationCoordinate2D+Distances.swift in Sources */,
 				725EE3722033564E00A90A52 /* LoginViewController.swift in Sources */,
+				72B9F63B2037AA6B0010D953 /* CustomIOSMarker.swift in Sources */,
 				72DC7ACC2035F7E800A1FAE8 /* FirebaseStorageManager.swift in Sources */,
 				725EE3A6203362AE00A90A52 /* ApiManager.swift in Sources */,
 				725EE3BC203382CC00A90A52 /* UIView+InspecatbleBorders.swift in Sources */,

@@ -34,14 +34,11 @@ class GoogleMapViewController: MapViewController {
     }
     
     private func setMapType() {
-        guard let map = mapView else {
+        let mapTypeIndex = UInt(Defaults[.mapTypeIndex])
+        guard let mapType = GMSMapViewType(rawValue: mapTypeIndex) else {
             return
         }
-        if Defaults[.isSateliteEnabled] {
-            map.mapType = .satellite
-            return
-        }
-        map.mapType = .normal
+        mapView.mapType = mapType
     }
     
     func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {

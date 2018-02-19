@@ -11,7 +11,7 @@ import Foundation
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
-    static let isSateliteEnabled = DefaultsKey<Bool>("isSateliteEnabled")
+    static let mapTypeIndex = DefaultsKey<Int>("mapTypeIndex")
     static let isLoggedIn = DefaultsKey<Bool>("isLogedIn")
     static let userUid = DefaultsKey<String>("userUid")
 }

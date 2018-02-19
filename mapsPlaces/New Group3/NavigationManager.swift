@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftyUserDefaults
 
 class NavigationManager {
     
@@ -15,5 +16,13 @@ class NavigationManager {
     
     func navigateToLogin() {
         window?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
+    }
+    
+    func navigateToMapsIfLoged() {
+        if Defaults[.isLoggedIn] {
+            let mapsNavigator = UIStoryboard(name: "Maps", bundle: nil)
+            window?.rootViewController = mapsNavigator.instantiateInitialViewController()
+            window?.makeKeyAndVisible()
+        }
     }
 }

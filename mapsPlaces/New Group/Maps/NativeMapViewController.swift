@@ -34,14 +34,11 @@ class NativeMapViewController: MapViewController {
     }
     
     private func setMapType() {
-        guard let map = mapView else {
+        let mapTypeIndex = UInt(Defaults[.mapTypeIndex])
+        guard let mapType = MKMapType(rawValue: mapTypeIndex) else {
             return
         }
-        if Defaults[.isSateliteEnabled] {
-            map.mapType = .satellite
-            return
-        }
-        map.mapType = .standard
+        mapView.mapType = mapType
     }
     
     func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
