@@ -12,17 +12,17 @@ import SwiftyUserDefaults
 
 class NavigationManager {
     
-    let window = UIApplication.shared.keyWindow
-    
     func navigateToLogin() {
-        window?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
+        let app = UIApplication.shared.delegate as! AppDelegate
+        app.window?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
     }
     
-    func navigateToMapsIfLoged() {
+    func navigateToMapsIfLogged() {
+        let app = UIApplication.shared.delegate as! AppDelegate
         if Defaults[.isLoggedIn] {
             let mapsNavigator = UIStoryboard(name: "Maps", bundle: nil)
-            window?.rootViewController = mapsNavigator.instantiateInitialViewController()
-            window?.makeKeyAndVisible()
+            app.window?.rootViewController = mapsNavigator.instantiateInitialViewController()
+            app.window?.makeKeyAndVisible()
         }
     }
 }
