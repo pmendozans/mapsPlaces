@@ -36,7 +36,7 @@ class MapViewController: UIViewController {
     
     private func setMapType() {
         let mapTypeIndex = UInt(Defaults[.mapTypeIndex])
-        delegate?.placesMap(setMapTypeByIndex: mapTypeIndex)
+        placesMapDelegate?.placesMap(setMapTypeByIndex: mapTypeIndex)
     }
     
     func addProfileButton(){
@@ -80,7 +80,7 @@ class MapViewController: UIViewController {
     func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
         googlePlacesViewModel.getNearvyPlaces(byLocation: coordinate)
             .then { places in
-                self.delegate?.placesMap(setMarkers: places)
+                self.placesMapDelegate?.placesMap(setMarkers: places)
         }
     }
 }
@@ -91,8 +91,7 @@ extension MapViewController: CLLocationManagerDelegate {
         guard let location = locations.first else {
             return
         }
-        //mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-        delegate?.placesMap(centerToLocation: location)
+        placesMapDelegate?.placesMap(centerToLocation: location)
         fetchNearbyPlaces(coordinate: location.coordinate)
         locationManager.stopUpdatingLocation()
     }
