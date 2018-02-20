@@ -10,3 +10,4 @@
 "cancel" = "Cancel";
 "open-settings" = "Open Settings";
 "login-error" = "Something went wrong, try again";
+"cant-get-location" = "We were unable to get your location, check your settings and try again";

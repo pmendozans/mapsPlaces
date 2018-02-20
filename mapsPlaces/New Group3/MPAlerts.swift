@@ -12,6 +12,7 @@ import LKAlertController
 enum MPAlerts {
     static let loginError = Alert(message: NSLocalizedString("login-error", comment: "")).addAction("Ok")
     static let cantOpenLibrary = Alert(message: NSLocalizedString("cant-open-library", comment: "")).addAction("Ok")
+    static let cantGetLocation = Alert(message: NSLocalizedString("cant-get-location", comment: "")).addAction("Ok")
     static let requestForLocationAlert = ActionSheet(message: NSLocalizedString("turn-on-location", comment: ""))
                                         .addAction(NSLocalizedString("cancel", comment: ""))
                                         .addAction(NSLocalizedString("open-settings", comment: ""), style: UIAlertActionStyle.default, handler: {_ in
