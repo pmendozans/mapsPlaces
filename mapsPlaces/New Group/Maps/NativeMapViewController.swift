@@ -25,34 +25,12 @@ class NativeMapViewController: MapViewController {
         super.viewDidLoad()
         locationManager.delegate = self
         mapView.delegate = self
+        placesMapDelegate = self
         centerMapOnLocation(location: initialLocation)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setMapType()
-    }
-    
-    private func setMapType() {
-        let mapTypeIndex = UInt(Defaults[.mapTypeIndex])
-        guard let mapType = MKMapType(rawValue: mapTypeIndex) else {
-            return
-        }
-        mapView.mapType = mapType
-    }
-    
-    func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
-        googlePlacesViewModel.getNearvyPlaces(byLocation: coordinate)
-            .then { places -> Void in
-                for place in places {
-                    self.mapView.addAnnotation(place)
-                }
-        }
-    }
-    
+        
     private func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius, regionRadius)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
@@ -69,22 +47,7 @@ class NativeMapViewController: MapViewController {
         }
         return annotationView
     }
-}
-
-// MARK: - CLLocationManagerDelegate
-extension NativeMapViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else {
-            return
-        }
-        centerMapOnLocation(location: location)
-        fetchNearbyPlaces(coordinate: location.coordinate)
-        locationManager.stopUpdatingLocation()
-    }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
-    }
 }
 
 // MARK: - MKMapViewDelegate
@@ -108,5 +71,25 @@ extension NativeMapViewController: MKMapViewDelegate {
             return
         }
         openDetailsViewController(place: place)
+    }
+}
+
+// MARK: - PlacesMapDelegate
+extension NativeMapViewController: PlacesMapDelegate{
+    func placesMap(centerToLocation location: CLLocation) {
+        centerMapOnLocation(location: location)
+    }
+    
+    func placesMap(setMarkers markers: [GooglePlace]) {
+        for marker in markers {
+            self.mapView.addAnnotation(marker)
+        }
+    }
+    
+    func placesMap(setMapTypeByIndex index: UInt) {
+        guard let mapType = MKMapType(rawValue: index - 1) else {
+            return
+        }
+        mapView.mapType = mapType
     }
 }

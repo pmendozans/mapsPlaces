@@ -25,53 +25,14 @@ class GoogleMapViewController: MapViewController {
         super.viewDidLoad()
         locationManager.delegate = self
         mapView.delegate = self
+        placesMapDelegate = self
         setupMapToDefaultlocation()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setMapType()
-    }
-    
-    private func setMapType() {
-        let mapTypeIndex = UInt(Defaults[.mapTypeIndex])
-        guard let mapType = GMSMapViewType(rawValue: mapTypeIndex) else {
-            return
-        }
-        mapView.mapType = mapType
-    }
-    
-    func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
-        mapView.clear()
-        googlePlacesViewModel.getNearvyPlaces(byLocation: coordinate)
-        .then { places -> Void in
-            for place in places {
-                let marker = PlaceMarker(place: place)
-                marker.map = self.mapView
-            }
-        }
     }
 
     private func setupMapToDefaultlocation() {
         let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: 29.097, longitude: -111.022, zoom: 13.0)
         mapView.camera = camera
         mapView.isMyLocationEnabled = true
-    }
-}
-
-// MARK: - CLLocationManagerDelegate
-extension GoogleMapViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else {
-            return
-        }
-        mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-        fetchNearbyPlaces(coordinate: mapView.camera.target)
-        locationManager.stopUpdatingLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
     }
 }
 
@@ -92,3 +53,26 @@ extension GoogleMapViewController: GMSMapViewDelegate {
         openDetailsViewController(place: placeMarker.place)
     }
 }
+
+// MARK: PlacesMapDelegate
+extension GoogleMapViewController: PlacesMapDelegate{
+    
+    func placesMap(centerToLocation location: CLLocation) {
+        mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+    }
+    
+    func placesMap(setMarkers markers: [GooglePlace]) {
+        for place in markers {
+            let marker = PlaceMarker(place: place)
+            marker.map = self.mapView
+        }
+    }
+    
+    func placesMap(setMapTypeByIndex index: UInt) {
+        guard let mapType = GMSMapViewType(rawValue: index) else {
+            return
+        }
+        mapView.mapType = mapType
+    }
+}
+

@@ -27,7 +27,7 @@ class ProfileHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadUserInformation()
-        mapModeSwitch.isOn = Defaults[.mapTypeIndex] == 1
+        mapModeSwitch.isOn = Defaults[.mapTypeIndex] == 2
         updateImagesAlpha()
     }
     
@@ -56,7 +56,8 @@ class ProfileHomeViewController: UIViewController {
     }
     
     @IBAction func mapMode(_ sender: UISwitch) {
-        Defaults[.mapTypeIndex] = sender.isOn ? 1 : 2
+        Defaults[.mapTypeIndex] = sender.isOn ? 2 : 1
+        print(Defaults[.mapTypeIndex])
         updateImagesAlpha()
     }
     
