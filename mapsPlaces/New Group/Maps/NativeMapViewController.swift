@@ -87,7 +87,7 @@ extension NativeMapViewController: PlacesMapDelegate{
     }
     
     func placesMap(setMapByType mapType: MPMapType?) {
-        guard let nativeMapType = mapType?.getNativeMapsType() else {
+        guard let nativeMapType = mapType?.nativeMapsType else {
             return
         }
         mapView.mapType = nativeMapType

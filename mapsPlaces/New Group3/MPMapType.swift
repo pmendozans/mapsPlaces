@@ -14,11 +14,11 @@ enum MPMapType: Int {
     case streets = 1
     case satellite
     
-    func getGoogleMapsType() -> GMSMapViewType? {
+    var googleMapsType: GMSMapViewType? {
         return GMSMapViewType(rawValue: UInt(rawValue))
     }
     
-    func getNativeMapsType() -> MKMapType? {
+    var nativeMapsType: MKMapType? {
         return MKMapType(rawValue: UInt(rawValue - 1))
     }
 }

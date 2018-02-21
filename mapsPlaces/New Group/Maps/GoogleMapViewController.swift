@@ -69,7 +69,7 @@ extension GoogleMapViewController: PlacesMapDelegate{
     }
     
     func placesMap(setMapByType mapType: MPMapType?) {
-        guard let googleMapType = mapType?.getGoogleMapsType() else {
+        guard let googleMapType = mapType?.googleMapsType else {
             return
         }
         mapView.mapType = googleMapType
