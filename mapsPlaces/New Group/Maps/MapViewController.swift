@@ -11,7 +11,7 @@ import CoreLocation
 import SwiftyUserDefaults
 
 protocol PlacesMapDelegate {
-    func placesMap(setMapTypeByIndex index: UInt)
+    func placesMap(setMapByType mapType: MPMapType?)
     func placesMap(centerToLocation location: CLLocation)
     func placesMap(setMarkers markers: [GooglePlace])
 }
@@ -35,8 +35,8 @@ class MapViewController: UIViewController {
     }
     
     private func setMapType() {
-        let mapTypeIndex = UInt(Defaults[.mapTypeIndex])
-        placesMapDelegate?.placesMap(setMapTypeByIndex: mapTypeIndex)
+        let mapType = Defaults[.mapType]
+        placesMapDelegate?.placesMap(setMapByType: mapType)
     }
     
     func addProfileButton(){

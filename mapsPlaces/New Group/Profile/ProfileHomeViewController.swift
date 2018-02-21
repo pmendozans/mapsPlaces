@@ -27,7 +27,7 @@ class ProfileHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadUserInformation()
-        mapModeSwitch.isOn = Defaults[.mapTypeIndex] == 2
+        mapModeSwitch.isOn = Defaults[.mapType] == .satellite
         updateImagesAlpha()
     }
     
@@ -56,8 +56,7 @@ class ProfileHomeViewController: UIViewController {
     }
     
     @IBAction func mapMode(_ sender: UISwitch) {
-        Defaults[.mapTypeIndex] = sender.isOn ? 2 : 1
-        print(Defaults[.mapTypeIndex])
+        Defaults[.mapType] = sender.isOn ? .satellite : .streets
         updateImagesAlpha()
     }
     

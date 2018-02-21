@@ -68,11 +68,11 @@ extension GoogleMapViewController: PlacesMapDelegate{
         }
     }
     
-    func placesMap(setMapTypeByIndex index: UInt) {
-        guard let mapType = GMSMapViewType(rawValue: index) else {
+    func placesMap(setMapByType mapType: MPMapType?) {
+        guard let googleMapType = mapType?.getGoogleMapsType() else {
             return
         }
-        mapView.mapType = mapType
+        mapView.mapType = googleMapType
     }
 }
 

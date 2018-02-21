@@ -11,7 +11,14 @@ import Foundation
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
-    static let mapTypeIndex = DefaultsKey<Int>("mapTypeIndex")
+    static let mapType = DefaultsKey<MPMapType?>("mapTypeIndex")
     static let isLoggedIn = DefaultsKey<Bool>("isLogedIn")
     static let userUid = DefaultsKey<String>("userUid")
+}
+
+extension UserDefaults {
+    subscript(key: DefaultsKey<MPMapType?>) -> MPMapType? {
+        get { return unarchive(key) }
+        set { archive(key, newValue) }
+    }
 }
