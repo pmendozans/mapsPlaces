@@ -11,7 +11,7 @@ import Firebase
 import GoogleSignIn
 import FacebookLogin
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, GIDSignInDelegate {
     
     private let authenticationManager = AuthenticationManager()
     private let loginToMapsSegue = "loginToMapsSegue"
@@ -44,9 +44,10 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController : GIDSignInDelegate, GIDSignInUIDelegate {
+extension LoginViewController: GIDSignInUIDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        guard let authentication = user.authentication else {
+        guard error == nil, let authentication = user.authentication else {
+            MPAlerts.loginError.show()
             return
         }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,

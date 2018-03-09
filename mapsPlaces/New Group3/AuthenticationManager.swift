@@ -56,8 +56,8 @@ class AuthenticationManager {
     }
     
     func logout() {
+        Defaults[.isLoggedIn] = false
         do {
-            Defaults[.isLoggedIn] = false
             try Auth.auth().signOut()
         }
         catch {
